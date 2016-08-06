@@ -12,7 +12,7 @@ import {
 
 export default class List extends React.Component {
 
-  static const icon = "reorder"
+  static getIcon() { return "reorder" }
 
   constructor(props) {
     super(props)

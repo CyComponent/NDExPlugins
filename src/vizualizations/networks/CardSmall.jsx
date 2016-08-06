@@ -17,7 +17,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 
 export default class CardSmall extends React.Component {
 
-  static const icon = "view_module"
+  static getIcon() { return "view_module" }
 
   constructor(props) {
     super(props)

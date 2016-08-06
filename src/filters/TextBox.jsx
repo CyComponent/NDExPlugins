@@ -2,7 +2,7 @@ import React from 'react'
 
 class TextBox extends React.Component {
 
-  static const icon = "reorder"
+  static getIcon() { return "reorder" }
 
   handleChange(event) {
     this.props.fieldActions.updateQuery(event.target.value)
@@ -29,3 +29,5 @@ class TextBox extends React.Component {
         />
     )
   }
+
+}

@@ -11,11 +11,11 @@ import {
 import RaisedButton from 'material-ui/RaisedButton'
 
 import 'react-bootstrap-table/css/react-bootstrap-table.css'
-import '../style/react-bootstrap-table-helper'
+import '../../style/react-bootstrap-table-helper'
 
 export default class Table extends React.Component {
 
-  static const icon = "reorder"
+  static getIcon() { return "reorder" }
 
   time(T) {
     var d = new Date(0)

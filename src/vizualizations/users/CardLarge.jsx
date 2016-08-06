@@ -15,7 +15,7 @@ import {
 
 export default class CardLarge extends React.Component {
 
-  static const icon = "view_stream"
+  static getIcon() { return "view_stream" }
 
   time(T) {
     var d = new Date(0)

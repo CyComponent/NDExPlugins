@@ -3,7 +3,7 @@ import TextField from 'material-ui/TextField'
 
 export default class NetworkForm extends React.Component {
 
-  static const icon = "device_hub"
+  static getIcon() { return "device_hub" }
 
   render() {
     const style = {
