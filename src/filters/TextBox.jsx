@@ -1,11 +1,11 @@
 import React from 'react'
 
-class TextBox extends React.Component {
+export default class TextBox extends React.Component {
 
   static getIcon() { return "reorder" }
 
   handleChange(event) {
-    this.props.fieldActions.updateQuery(event.target.value)
+    this.props.updateQuery(event.target.value)
   }
 
   render() {
@@ -24,7 +24,7 @@ class TextBox extends React.Component {
         <textarea
           style={style}
           placeholder="Enter your search terms here..."
-          value={this.props.fields.get('query')}
+          value={this.props.query}
           onChange={this.handleChange.bind(this)}
         />
     )

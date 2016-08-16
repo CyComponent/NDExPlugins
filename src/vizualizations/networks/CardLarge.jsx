@@ -18,66 +18,30 @@ export default class CardLarge extends React.Component {
 
   static getIcon() { return "view_stream" }
 
-  constructor(props) {
-    super(props)
-    this.state = {value: "name"}
-  }
-
   time(T) {
     var d = new Date(0)
     d.setUTCSeconds(T/1000.0)
     return d.toLocaleDateString()
   }
 
-  handleSelection(NWS, NW) {
-    const index = NWS.indexOf(NW)
-    const network = this.props.networkSummaries.get(index)
-    this.props.cartActions.addNetwork(network)
-  }
-
-  sort(sortOn, networks) {
-    networks.sort(function(a, b) {
-      return a[sortOn] > b[sortOn]
-    })
-    return networks
-  }
-
-  setSortOn(value) {
-    this.setState({value})
+  handleSelection(NW) {
+    this.props.addToCart(NW.externalId, NW)
   }
 
   render() {
     const cardStackStyle = {
       height: '95%'
     }
-    var networkSummaries = this.props.networkSummaries.toJS()
+    var networkSummaries = this.props.networks.toArray()
     var networks = networkSummaries.map(N => {
       N.modificationTime = this.time(N.modificationTime)
       N.creationTime = this.time(N.creationTime)
       return N
     })
-    var sortedNetworks = this.sort(this.state.value, networks)
     return (
      <div style = {cardStackStyle}>
-       <div>
-         <RaisedButton
-           label="Sort by name"
-           secondary={true}
-           onClick={this.setSortOn.bind(this, "name")}
-         />
-         <RaisedButton
-           label="Sort by owner"
-           secondary={true}
-           onClick={this.setSortOn.bind(this, "owner")}
-         />
-         <RaisedButton
-           label="Sort by visibility"
-           secondary={true}
-           onClick={this.setSortOn.bind(this, "visibility")}
-         />
-       </div>
        <div style={{ overflow: 'scroll', height: '95%' }}>
-         {sortedNetworks.map(N => (
+         {networks.map(N => (
             <Card style={{ margin: "20"}}>
               <CardHeader
                 title={"Created on " + N.creationTime}
@@ -92,7 +56,7 @@ export default class CardLarge extends React.Component {
                 <RaisedButton
                   label="Add to Cart"
                   primary={true}
-                  onClick={this.handleSelection.bind(this, networks, N)}
+                  onClick={this.handleSelection.bind(this, N)}
                 />
               </CardActions>
             </Card>
