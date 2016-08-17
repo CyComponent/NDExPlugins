@@ -40,20 +40,19 @@ export default class Table extends React.Component {
   }
 
   getSelectedRows() {
-    console.log("Called get selected")
-    const cart = this.props.cart.toJS()
-    return cart.map(N => {
-      return N.externalId
-    })
+    console.log(
+      "Getting selected"
+    )
+    console.log(Object.keys(this.props.cart))
+    return Object.keys(this.props.cart)
+
   }
 
   handleSelection(NWS, NW, isSelected) {
-    const index = NWS.indexOf(NW)
-    const network = this.props.networkSummaries.get(index)
     if (!isSelected) {
-      this.props.cartActions.deleteNetwork(network)
+      this.props.removeFromCart(NW.externalId)
     } else {
-      this.props.cartActions.addNetwork(network)
+      this.props.addToCart(NW.externalId, NW)
     }
   }
 
@@ -63,7 +62,7 @@ export default class Table extends React.Component {
   }
 
   render() {
-    const networkSummaries = this.props.networkSummaries.toJS()
+    const networkSummaries = this.props.networks.toArray()
     var networks = networkSummaries.map(N => {
       N.modificationDate = this.time(N.modificationTime)
       N.creationDate = this.time(N.creationTime)

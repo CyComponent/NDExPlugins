@@ -24,8 +24,8 @@ export default class CardLarge extends React.Component {
     return d.toLocaleDateString()
   }
 
-  handleSelection(NW) {
-    this.props.addToCart(NW.externalId, NW)
+  handleSelection(network) {
+    this.props.addToCart(network.externalId, network)
   }
 
   render() {
