@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class TextBox extends React.Component {
 
-  static getIcon() { return "reorder" }
+  static getIcon() { return "note" }
 
   handleChange(event) {
     this.props.updateQuery(event.target.value)

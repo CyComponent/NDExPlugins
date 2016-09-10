@@ -1,4 +1,5 @@
 
+
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
 import React from 'react'
@@ -24,21 +25,23 @@ export default class CardLarge extends React.Component {
   }
 
   render() {
-    var users = this.props.users.map(U => {
-      U.modificationTime = this.time(U.modificationTime)
-      U.creationTime = this.time(U.creationTime)
-      return U
+    var groups = this.props.summaries.map(G => {
+      G.modificationTime = this.time(G.modificationTime)
+      G.creationTime = this.time(G.creationTime)
+      return G
     })
-    users = users.toArray()
+    groups = groups.toArray()
     return (
       <div style={{ overflow: 'scroll', height: '95%', width: '100%' }}>
-        {users.map(U => (
+        {groups.map(U => (
           <Card style={{ margin: "20"}}>
             <CardHeader
               title={"Created on " + U.creationTime}
               subtitle={"Modified on " + U.modificationTime}
             />
-            <CardTitle title={U.accountName} subtitle={U.emailAddress}/>
+            <CardTitle title={
+              <a href={"http://www.ndexbio.org/#/group/" + U.externalId}>{U.groupName}</a>
+            }/>
             <CardText>
               {U.description}
             </CardText>

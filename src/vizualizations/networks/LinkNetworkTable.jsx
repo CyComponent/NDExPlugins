@@ -17,7 +17,6 @@ export default class Table extends React.Component {
 
   static getIcon() { return "reorder" }
 
-
   modSortFunc(a, b, order) {
     if (order == "asc") {
       return a.modificationTime - b.modificationTime
@@ -34,56 +33,28 @@ export default class Table extends React.Component {
     }
   }
 
-  getSelectedRows() {
-    console.log(
-      "Getting selected"
-    )
-    console.log(Object.keys(this.props.cart))
-    return Object.keys(this.props.cart)
-
+  idFormat(cell, row) {
+    return '<a href="http://www.ndexbio.org/#/newNetwork/' + cell + '">View</a>'
   }
 
-  handleSelection(NWS, NW, isSelected) {
-    if (!isSelected) {
-      this.props.removeFromCart(NW.externalId)
-    } else {
-      this.props.addToCart(NW.externalId, NW)
-    }
-  }
-
-  clearAll = () => {
-    this.props.cartActions.clear()
-    this.forceUpdate()
-  }
 
   render() {
     const networks = this.props.summaries.toArray()
-    const selectRow = {
-      mode: 'checkbox',
-      onSelect: this.handleSelection.bind(this, networks),
-      selected: this.getSelectedRows(),
-      search: true,
-      multiColumnSearch: true,
-      clickToSelect: true,
-      striped: true
-    }
     return (
-      <div style={{ height: '95%' }}>
+      <div style={{ height: '95%', overflow: 'scroll' }}>
         <BootstrapTable
           data={networks}
-          selectRow={selectRow}
           striped={true}
-          height="95%"
           columnFilter={true}
+          height="95%"
         >
           <TableHeaderColumn dataField="externalId"
-            width="400px"
-            hidden={true}
+            width="200px"
             isKey={true}
-            dataSort={true}
             columnFilter={true}
+            dataFormat={this.idFormat}
           >
-            ID
+            View
           </TableHeaderColumn>
           <TableHeaderColumn
             dataField="name"

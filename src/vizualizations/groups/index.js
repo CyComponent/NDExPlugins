@@ -1,0 +1,1 @@
+export LinkCardLarge from './LinkCardLarge'

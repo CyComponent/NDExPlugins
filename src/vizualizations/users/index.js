@@ -1,1 +1,1 @@
-export CardLarge from './CardLarge'
+export LinkCardLarge from './LinkCardLarge'
