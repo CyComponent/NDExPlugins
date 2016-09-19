@@ -18,12 +18,6 @@ export default class CardLarge extends React.Component {
 
   static getIcon() { return "view_stream" }
 
-  time(T) {
-    var d = new Date(0)
-    d.setUTCSeconds(T/1000.0)
-    return d.toLocaleDateString()
-  }
-
   handleSelection(network) {
     this.props.addToCart(network.externalId, network)
   }
@@ -32,12 +26,7 @@ export default class CardLarge extends React.Component {
     const cardStackStyle = {
       height: '95%'
     }
-    var networkSummaries = this.props.summaries.toArray()
-    var networks = networkSummaries.map(N => {
-      N.modificationTime = this.time(N.modificationTime)
-      N.creationTime = this.time(N.creationTime)
-      return N
-    })
+    var networks = this.props.summaries.toArray()
     return (
      <div style = {cardStackStyle}>
        <div style={{ overflow: 'scroll', height: '95%' }}>

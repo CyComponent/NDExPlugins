@@ -35,9 +35,6 @@ export default class Table extends React.Component {
   }
 
   getSelectedRows() {
-    console.log(
-      "Getting selected"
-    )
     console.log(Object.keys(this.props.cart))
     return Object.keys(this.props.cart)
 
@@ -119,14 +116,14 @@ export default class Table extends React.Component {
             Nodes
           </TableHeaderColumn>
           <TableHeaderColumn
-            dataField="creationDate"
+            dataField="creationTime"
             dataSort={true}
             sortFunc={this.createSortFunc.bind(this)}
           >
             Created
           </TableHeaderColumn>
           <TableHeaderColumn
-            dataField="modificationDate"
+            dataField="modificationTime"
             dataSort={true}
             sortFunc={this.modSortFunc.bind(this)}
           >

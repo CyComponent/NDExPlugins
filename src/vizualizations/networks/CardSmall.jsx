@@ -28,6 +28,7 @@ export default class CardSmall extends React.Component {
       height: '95%'
     }
     var networks = this.props.summaries.toArray()
+    console.log(networks)
     return (
      <div style = {cardStackStyle}>
        <div style={{
