@@ -20,17 +20,17 @@ export default class Table extends React.Component {
 
   modSortFunc(a, b, order) {
     if (order == "asc") {
-      return a.modificationTime - b.modificationTime
+      return new Date(a.modificationTime).getTime() - new Date(b.modificationTime).getTime()
     } else  {
-      return b.modificationTime - a.modificationTime
+      return new Date(b.modificationTime).getTime() - new Date(a.modificationTime).getTime()
     }
   }
 
   createSortFunc(a, b, order) {
     if (order == "asc") {
-      return a.creationTime - b.creationTime
+      return new Date(a.creationTime).getTime() - new Date(b.creationTime).getTime()
     } else  {
-      return b.creationTime - a.creationTime
+      return new Date(b.creationTime).getTime() - new Date(a.creationTime).getTime()
     }
   }
 
