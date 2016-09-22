@@ -74,15 +74,21 @@ export default class CardLarge extends React.Component {
                         titleStyle={titleStyle}
                         subtitle={
                           <div>
-                            Owner: {N.owner}, Created: {N.creationTime}, Modified: {N.modificationTime}
+                              Owner: {N.owner}, Created: {N.creationTime}, Modified: {N.modificationTime}
                           </div>
                         }
                         subtitleColor={'#DDDDDD'}
                       />
+
                       <CardText
                         color={'#FFFFFF'}
                       >
-                        {N.description}
+                        <section>
+                          Nodes: {N.nodeCount} / Edges: {N.edgeCount}
+                        </section>
+                        <section>
+                          {N.description}
+                        </section>
                       </CardText>
                     </div>
 
@@ -128,10 +134,9 @@ class NetworkImage extends React.Component {
         alignItems: 'center',
         justifyContent: 'center',
         height: '40%',
-        paddingTop: '2em',
         backgroundColor: '#DFDFDF',
-        color: '#DDDDDD',
-        fontSize: '4em'
+        color: '#CCCCCC',
+        fontSize: '4em',
       }
 
       return (
