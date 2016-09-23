@@ -133,7 +133,7 @@ class NetworkImage extends React.Component {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '40%',
+        height: '95%',
         backgroundColor: '#DFDFDF',
         color: '#CCCCCC',
         fontSize: '4em',
@@ -147,17 +147,16 @@ class NetworkImage extends React.Component {
     } else {
       const imgStyle = {
         width: '100%',
-        minWidth: 0,
-        margin: 0,
-        padding: 0
+        height: '95%',
+        objectFit: 'cover'
       }
 
       return (
-        <img
-          src={"http://ci-dev-serv.ucsd.edu/" + this.props.N.externalId + ".png"}
-          onError={this.error}
-          style={imgStyle}
-        />
+          <img
+            src={"http://ci-dev-serv.ucsd.edu/" + this.props.N.externalId + ".png"}
+            onError={this.error}
+            style={imgStyle}
+          />
       )
     }
   }
