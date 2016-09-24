@@ -50,7 +50,6 @@ export default class CardSmall extends React.Component {
       alignSelf: 'flex-end'
     }
 
-
     const titleStyle = {
       width: '100%',
       fontSize: '1em',
@@ -83,10 +82,11 @@ export default class CardSmall extends React.Component {
             <Card style={cardStyle}>
 
               <CardMedia
-                overlayContentStyle={{backgroundColor: 'rgba(100, 100, 100, 0.7)'}}
+
+                overlayContentStyle={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
                 overlay={
-                  <div style={{display: 'flex'}}>
-                    <div style={{width: '90%'}}>
+                  <div style={{display: 'flex', height: '8.5em', paddingBottom: '1em'}}>
+                    <div style={{width: '90%', overflowY: 'scroll'}}>
                       <CardTitle
                         title={N.name}
                         titleColor={'#FFFFFF'}
@@ -145,11 +145,11 @@ class NetworkImage extends React.Component {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#DFDFDF',
-        color: '#CCCCCC',
+        color: '#AAAAAA',
         width: '100%',
-        minWidth: '280px',
-        minHeight: '200px',
-        fontSize: '1em',
+        height: '35%',
+        minWidth: '200px',
+        fontSize: '3em',
       }
 
       return (
@@ -160,10 +160,11 @@ class NetworkImage extends React.Component {
     } else {
       const imgStyle = {
         width: '100%',
-        minWidth: '280px',
-        maxHeight: '40%',
+        height: '35%',
+        minWidth: '200px',
         margin: 0,
-        padding: 0
+        padding: 0,
+        objectFit: 'cover'
       }
 
       return (

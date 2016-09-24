@@ -63,11 +63,11 @@ export default class CardLarge extends React.Component {
             <Card style={cardStyle}>
 
               <CardMedia
-                overlayContentStyle={{backgroundColor: 'rgba(100, 100, 100, 0.7)'}}
+                overlayContentStyle={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
                 overlay={
 
-                  <div style={{display: 'flex'}}>
-                    <div style={{width: '83%'}}>
+                  <div style={{display: 'flex', maxHeight: '240px', paddingBottom: '1em'}}>
+                    <div style={{width: '83%', overflowY: 'scroll'}}>
                       <CardTitle
                         title={N.name}
                         titleColor={'#FFFFFF'}
@@ -122,7 +122,6 @@ class NetworkImage extends React.Component {
   }
 
   error = () => {
-    console.log("Called error")
     this.setState({ error: true })
   }
 
@@ -133,10 +132,11 @@ class NetworkImage extends React.Component {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '95%',
+        height: '30%',
+        minHeight: '250px',
         backgroundColor: '#DFDFDF',
-        color: '#CCCCCC',
-        fontSize: '4em',
+        color: '#AAAAAA',
+        fontSize: '5em',
       }
 
       return (
