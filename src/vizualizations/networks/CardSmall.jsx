@@ -21,7 +21,7 @@ export default class CardSmall extends React.Component {
   handleSelection(network) {
     console.log('* Add to cart: ')
     console.log(network)
-    this.props.addToCart(network.externalID, network)
+    this.props.addToCart(network.externalId, network)
   }
 
 
