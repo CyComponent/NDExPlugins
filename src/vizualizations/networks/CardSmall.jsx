@@ -37,7 +37,7 @@ export default class CardSmall extends React.Component {
       alignItem: 'center',
       flexDirection: 'row',
       height: '100%',
-      overflowY: 'scroll',
+      overflowY: 'auto',
       overflowX: 'hidden'
     }
 
@@ -85,8 +85,8 @@ export default class CardSmall extends React.Component {
 
                 overlayContentStyle={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
                 overlay={
-                  <div style={{display: 'flex', height: '8.5em', paddingBottom: '1em'}}>
-                    <div style={{width: '90%', overflowY: 'scroll'}}>
+                  <div style={{display: 'flex', height: '9em', paddingBottom: '1em'}}>
+                    <div style={{width: '90%', overflowY: 'hidden'}}>
                       <CardTitle
                         title={N.name}
                         titleColor={'#FFFFFF'}
