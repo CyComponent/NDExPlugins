@@ -66,8 +66,8 @@ export default class CardLarge extends React.Component {
                 overlayContentStyle={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
                 overlay={
 
-                  <div style={{display: 'flex', maxHeight: '240px', paddingBottom: '1em'}}>
-                    <div style={{width: '83%', overflowY: 'scroll'}}>
+                  <div style={{display: 'flex', maxHeight: '250px', paddingBottom: '1em'}}>
+                    <div style={{width: '83%', overflowY: 'auto'}}>
                       <CardTitle
                         title={N.name}
                         titleColor={'#FFFFFF'}
