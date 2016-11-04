@@ -2,14 +2,10 @@ import React from 'react'
 
 import {
   Card,
-  CardActions,
-  CardHeader,
   CardMedia,
-  CardTitle,
-  CardText
 } from 'material-ui/Card'
 
-import RaisedButton from 'material-ui/RaisedButton'
+import CardOverlayLarge from './CardOverlayLarge'
 
 
 export default class CardLarge extends React.Component {
@@ -38,20 +34,6 @@ export default class CardLarge extends React.Component {
       marginTop: '0.7em',
     }
 
-    const titleStyle = {
-      width: '100%',
-      fontWeight: '300',
-      wordWrap: 'break-word',
-    }
-
-    const actionStyle = {
-      width: '17%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-
-    }
-
     const networks = this.props.summaries.toArray()
 
     return (
@@ -65,41 +47,12 @@ export default class CardLarge extends React.Component {
               <CardMedia
                 overlayContentStyle={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
                 overlay={
-
-                  <div style={{display: 'flex', maxHeight: '250px', paddingBottom: '1em'}}>
-                    <div style={{width: '83%', overflowY: 'auto'}}>
-                      <CardTitle
-                        title={N.name}
-                        titleColor={'#FFFFFF'}
-                        titleStyle={titleStyle}
-                        subtitle={
-                          <div>
-                              Owner: {N.owner}, Created: {N.creationTime}, Modified: {N.modificationTime}
-                          </div>
-                        }
-                        subtitleColor={'#DDDDDD'}
-                      />
-
-                      <CardText
-                        color={'#FFFFFF'}
-                      >
-                        <section>
-                          Nodes: {N.nodeCount} / Edges: {N.edgeCount}
-                        </section>
-                        <section>
-                          {N.description}
-                        </section>
-                      </CardText>
-                    </div>
-
-                    <CardActions style={actionStyle}>
-                      <RaisedButton
-                        labelColor={'#666666'}
-                        label="Add"
-                        onClick={this.handleSelection.bind(this, N)}
-                      />
-                    </CardActions>
-                  </div>
+                  <CardOverlayLarge
+                    network={N}
+                    addToCart={this.props.addToCart}
+                    removeFromCart={this.props.removeFromCart}
+                    cart={this.props.cart}
+                  />
                 }
               >
                 <NetworkImage N={N}/>

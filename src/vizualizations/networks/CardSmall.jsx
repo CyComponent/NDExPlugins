@@ -1,34 +1,18 @@
 import React from 'react'
-
-import SvgIcon from 'material-ui/SvgIcon';
-import IconButton from 'material-ui/IconButton'
-import AddIcon from 'material-ui/svg-icons/action/add-shopping-cart'
-
-
+import CardOverlaySmall from './CardOverlaySmall'
 import {
   Card,
-  CardActions,
   CardMedia,
-  CardTitle,
 } from 'material-ui/Card'
 
 
 export default class CardSmall extends React.Component {
 
-  static getIcon() { return "view_module" }
-
-
-  handleSelection(network) {
-    console.log('* Add to cart: ')
-    console.log(network)
-    this.props.addToCart(network.externalId, network)
-  }
-
+  static getIcon = () => ("view_module")
 
   render() {
 
     const networks = this.props.summaries.toArray()
-
 
     const cardContainer = {
       display: 'flex',
@@ -50,80 +34,34 @@ export default class CardSmall extends React.Component {
       alignSelf: 'flex-end'
     }
 
-    const titleStyle = {
-      width: '100%',
-      fontSize: '1em',
-      lineHeight: '1.1em',
-      fontWeight: '300',
-      wordWrap: 'break-word',
-    }
-
-    const actionStyle = {
-      width: '10%',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-
-    }
-
-    const subStyle = {
-      fontSize: '0.9em',
-      marginTop: '0.2em'
-    }
 
 
     return (
 
       <div style={cardContainer}>
-
         {
           networks.map(N => (
-
             <Card style={cardStyle}>
-
               <CardMedia
-
                 overlayContentStyle={{backgroundColor: 'rgba(0, 0, 0, 0.5)'}}
                 overlay={
-                  <div style={{display: 'flex', height: '9em', paddingBottom: '1em'}}>
-                    <div style={{width: '90%', overflowY: 'hidden'}}>
-                      <CardTitle
-                        title={N.name}
-                        titleColor={'#FFFFFF'}
-                        titleStyle={titleStyle}
-                        subtitle={
-                          <div>
-                            Owner: {N.owner}, Created: {N.creationTime}, Modified: {N.modificationTime}
-                          </div>
-                        }
-                        subtitleColor={'#DDDDDD'}
-                        subtitleStyle={subStyle}
-                      />
-                    </div>
-                    <CardActions style={actionStyle}>
-                      <IconButton
-                        iconStyle={{color: '#FFFFFF'}}
-                        onClick={this.handleSelection.bind(this, N)}
-                      >
-                        <AddIcon/>
-                      </IconButton>
-                    </CardActions>
-                  </div>
+                  <CardOverlaySmall
+                    network={N}
+                    addToCart={this.props.addToCart}
+                    removeFromCart={this.props.removeFromCart}
+                    cart={this.props.cart}
+                  />
                 }
-
               >
                 <NetworkImage N={N}/>
               </CardMedia>
-
             </Card>
-
           ))
         }
       </div>
     )
   }
 }
-
 
 
 class NetworkImage extends React.Component {
