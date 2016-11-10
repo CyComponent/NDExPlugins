@@ -13,6 +13,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import 'react-bootstrap-table/css/react-bootstrap-table.css'
 import '../../style/react-bootstrap-table-helper'
 
+
 export default class Table extends React.Component {
 
   static getIcon() { return "reorder" }
@@ -62,16 +63,18 @@ export default class Table extends React.Component {
       search: true,
       multiColumnSearch: true,
       clickToSelect: true,
-      striped: true
     }
+
+
     return (
-      <div style={{ height: '95%' }}>
         <BootstrapTable
           data={networks}
           selectRow={selectRow}
-          striped={true}
-          height="95%"
+          containerStyle={{height: '93%', width: '100%'}}
+          tableStyle={{height: '93%'}}
+          bodyStyle={{height: '93%'}}
           columnFilter={true}
+          striped={true}
         >
           <TableHeaderColumn dataField="externalId"
             width="400px"
@@ -83,6 +86,7 @@ export default class Table extends React.Component {
             ID
           </TableHeaderColumn>
           <TableHeaderColumn
+            width="100"
             dataField="name"
             dataSort={true}
             columnFilter={true}
@@ -130,7 +134,6 @@ export default class Table extends React.Component {
             Modified
           </TableHeaderColumn>
         </BootstrapTable>
-      </div>
     )
   }
 }

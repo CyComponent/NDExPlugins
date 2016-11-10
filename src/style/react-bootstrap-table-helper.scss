@@ -1,11 +1,17 @@
+.react-bs-table-container .react-bs-table-search-form {
+  margin: 0;
+  padding: 0;
 
-.react-bs-container-header {
-  height: 5%;
 }
 
-.react-bs-container-body {
-  height: 95%;
+.react-bs-table {
+  border: none !important;
+  margin: 0;
+  padding: 0;
+  height: 30em;
 }
+
+
 
 input.react-bs-select-all {
   visibility: hidden;

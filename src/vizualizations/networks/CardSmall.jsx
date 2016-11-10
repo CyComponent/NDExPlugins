@@ -107,7 +107,7 @@ class NetworkImage extends React.Component {
 
       return (
         <img
-          src={"http://ci-dev-serv.ucsd.edu/" + this.props.N.externalId + ".png"}
+          src={"http://storage.cytoscape.io/images/" + this.props.N.externalId + ".png"}
           onError={this.error}
           style={imgStyle}
         />
