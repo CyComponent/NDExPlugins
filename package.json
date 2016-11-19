@@ -29,13 +29,12 @@
     "url": "https://github.com/CyComponent/NDExPlugins/issues"
   },
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react": "15.3.0",
+    "react-dom": "15.3.0"
   },
   "devDependencies": {
     "immutable": "^3.7.6",
     "material-ui": "^0.16.1",
-    "react-bootstrap-table": "^2.5.7",
     "babel-core": "^6.5.1",
     "babel-eslint": "^4.1.8",
     "babel-jest": "^6.0.1",
@@ -71,6 +70,6 @@
     }
   },
   "dependencies": {
-    "react-bootstrap-table": "^2.5.8"
+    "react-bootstrap-table": "2.5.8"
   }
 }
