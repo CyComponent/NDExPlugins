@@ -23,7 +23,7 @@ export default class CardLarge extends React.Component {
     const cardContainer = {
       display: 'flex',
       flexDirection: 'column',
-      height: '100%',
+      height: '92%',
       overflowY: 'scroll',
       overflowX: 'hidden'
     }

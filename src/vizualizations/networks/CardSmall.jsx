@@ -20,7 +20,7 @@ export default class CardSmall extends React.Component {
       justifyContent: 'space-around',
       alignItem: 'center',
       flexDirection: 'row',
-      height: '100%',
+      height: '92%',
       overflowY: 'auto',
       overflowX: 'hidden'
     }
@@ -85,8 +85,8 @@ class NetworkImage extends React.Component {
         backgroundColor: '#DFDFDF',
         color: '#AAAAAA',
         width: '100%',
-        height: '35%',
-        minWidth: '200px',
+        height: '45%',
+        minWidth: '250px',
         fontSize: '3em',
       }
 
@@ -98,8 +98,8 @@ class NetworkImage extends React.Component {
     } else {
       const imgStyle = {
         width: '100%',
-        height: '35%',
-        minWidth: '200px',
+        height: '45%',
+        minWidth: '250px',
         margin: 0,
         padding: 0,
         objectFit: 'cover'
